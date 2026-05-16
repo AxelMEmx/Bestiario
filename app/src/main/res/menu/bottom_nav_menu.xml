@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="Bestiario"/>
+    <item
+        android:id="@+id/juegoFragment"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Juego"/>
+    <item
+        android:id="@+id/favoritosFragment"
+        android:icon="@android:drawable/btn_star_big_off"
+        android:title="Favoritos"/>
+</menu>

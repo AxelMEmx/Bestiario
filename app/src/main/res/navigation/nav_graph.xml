@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.bestiario.hp.ui.home.HomeFragment"
+        android:label="Bestiario"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_detalle"
+            app:destination="@id/detalleFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.bestiario.hp.ui.detalle.DetalleFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_detalle">
+        <argument
+            android:name="bestiaId"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/juegoFragment"
+        android:name="com.bestiario.hp.ui.juego.JuegoFragment"
+        android:label="Juego"
+        tools:layout="@layout/fragment_juego"/>
+
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.bestiario.hp.ui.favoritos.FavoritosFragment"
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favoritos">
+        <action
+            android:id="@+id/action_favoritos_to_detalle"
+            app:destination="@id/detalleFragment"/>
+    </fragment>
+
+</navigation>
