@@ -6,14 +6,31 @@
     android:orientation="vertical"
     android:background="#0D0D0D">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Favoritos"
-        android:textColor="#C9A84C"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:padding="16dp"/>
+        android:background="#1A1A2E"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FAVORITOS"
+            android:textColor="#C9A84C"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tus criaturas guardadas"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textVacio"
@@ -30,6 +47,7 @@
         android:id="@+id/recyclerFavoritos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:clipToPadding="false"/>
 
 </LinearLayout>

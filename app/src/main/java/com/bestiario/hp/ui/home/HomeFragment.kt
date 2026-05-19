@@ -18,6 +18,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: BestiaViewModel by activityViewModels()
+    private var ordenAscendente = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,19 +39,57 @@ class HomeFragment : Fragment() {
             onFavoritoClick = { bestia ->
                 viewModel.toggleFavorito(bestia)
             }
-        )
 
+        )
+        binding.editBuscar.setOnEditorActionListener { _, _, _ ->
+            binding.editBuscar.requestFocus()
+            false
+        }
         binding.recyclerBestias.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerBestias.adapter = adapter
 
-        // Observar resultados de búsqueda
-        viewModel.resultadosBusqueda.observe(viewLifecycleOwner) { lista ->
-            adapter.submitList(lista)
+        viewModel.todasLasBestias.observe(viewLifecycleOwner) { lista ->
+            if (ordenAscendente && binding.editBuscar.text.isEmpty()) {
+                adapter.submitList(lista)
+            }
         }
 
-        // Buscador en tiempo real
+        viewModel.todasDesc.observe(viewLifecycleOwner) { lista ->
+            if (!ordenAscendente && binding.editBuscar.text.isEmpty()) {
+                adapter.submitList(lista)
+            }
+        }
+
+        viewModel.resultadosBusqueda.observe(viewLifecycleOwner) { lista ->
+            if (binding.editBuscar.text.isNotEmpty()) {
+                adapter.submitList(lista)
+            }
+        }
+
         binding.editBuscar.addTextChangedListener { texto ->
-            viewModel.buscar(texto.toString())
+            if (texto.toString().isEmpty()) {
+                if (ordenAscendente) {
+                    viewModel.todasLasBestias.value?.let { adapter.submitList(it) }
+                } else {
+                    viewModel.todasDesc.value?.let { adapter.submitList(it) }
+                }
+            } else {
+                viewModel.buscar(texto.toString())
+            }
+        }
+
+        binding.btnOrdenar.setOnClickListener {
+            ordenAscendente = !ordenAscendente
+            binding.btnOrdenar.text = if (ordenAscendente) "A - Z" else "Z - A"
+            if (ordenAscendente) {
+                viewModel.todasLasBestias.value?.let { adapter.submitList(it) {
+                    binding.recyclerBestias.scrollToPosition(0)
+                }}
+            } else {
+                viewModel.todasDesc.value?.let { adapter.submitList(it) {
+                    binding.recyclerBestias.scrollToPosition(0)
+                }}
+            }
         }
     }
 

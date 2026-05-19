@@ -6,15 +6,31 @@
     android:orientation="vertical"
     android:background="#0D0D0D">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adivina la Bestia"
-        android:textColor="#C9A84C"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="12dp"/>
+        android:background="#1A1A2E"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADIVINA LA BESTIA"
+            android:textColor="#C9A84C"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adivina la criatura por sus atributos"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textIntentos"
@@ -23,7 +39,7 @@
         android:text="Intentos: 0 / 8"
         android:textColor="#888888"
         android:gravity="center"
-        android:paddingBottom="8dp"/>
+        android:paddingVertical="8dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

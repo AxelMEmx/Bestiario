@@ -44,4 +44,17 @@ class BestiaViewModel(application: Application) : AndroidViewModel(application) 
     fun obtenerBestiaPorId(id: Int): LiveData<Bestia> {
         return repository.obtenerPorId(id)
     }
+
+    fun filtrarPorPeligro(nivel: Int): LiveData<List<Bestia>> {
+        return repository.filtrarPorPeligro(nivel)
+    }
+
+    fun filtrarPorAparicion(aparicion: String): LiveData<List<Bestia>> {
+        return repository.filtrarPorAparicion(aparicion)
+    }
+
+    fun filtrarLibros(): LiveData<List<Bestia>> = repository.filtrarLibros()
+    fun filtrarPeliculas(): LiveData<List<Bestia>> = repository.filtrarPeliculas()
+
+    val todasDesc: LiveData<List<Bestia>> = repository.todasDesc
 }

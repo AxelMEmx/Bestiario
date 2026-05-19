@@ -10,25 +10,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#1A1A2E"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BESTIARIO"
-            android:textColor="#C9A84C"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.2"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Animales Fantasticos"
-            android:textColor="#888888"
-            android:textSize="12sp"
-            android:textStyle="italic"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BESTIARIO"
+                    android:textColor="#C9A84C"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Animales Fantasticos"
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:textStyle="italic"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnOrdenar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A - Z"
+                android:textColor="#C9A84C"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:background="@drawable/bg_filtro_inactivo"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -36,7 +66,9 @@
         android:id="@+id/editBuscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
         android:padding="14dp"
         android:hint="Buscar criatura..."
         android:textColor="#FFFFFF"
@@ -44,6 +76,7 @@
         android:background="@drawable/bg_search"
         android:inputType="text"
         android:textSize="14sp"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBestias"

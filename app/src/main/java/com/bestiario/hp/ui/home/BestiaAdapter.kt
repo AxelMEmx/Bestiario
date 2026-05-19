@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bestiario.hp.data.Bestia
 import com.bestiario.hp.databinding.ItemBestiaBinding
+import com.bumptech.glide.Glide
 
 class BestiaAdapter(
     private val onItemClick: (Bestia) -> Unit,
@@ -17,6 +18,18 @@ class BestiaAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(bestia: Bestia) {
+            Glide.with(binding.imageBestiaItem)
+                .load(
+                    binding.root.context.resources.getIdentifier(
+                        bestia.imagenUrl, "drawable", binding.root.context.packageName
+                    )
+                )
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .centerCrop()
+                .into(binding.imageBestiaItem)
+            binding.textHabitatItem.text = "Habitat: ${bestia.habitat}"
+            binding.textDescripcionItem.text = bestia.descripcion
+
             binding.textNombreItem.text = bestia.nombre
             binding.textLatinItem.text = bestia.nombreLatin
             binding.textPeligroItem.text = "M.O.M.: ${"★".repeat(bestia.nivelPeligro)}${"☆".repeat(5 - bestia.nivelPeligro)}"

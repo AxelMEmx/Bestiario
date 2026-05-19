@@ -13,7 +13,16 @@ class BestiaRepository(private val dao: BestiaDao) {
 
     fun obtenerAleatoria(): LiveData<Bestia> = dao.obtenerAleatoria()
 
+    fun filtrarPorPeligro(nivel: Int): LiveData<List<Bestia>> = dao.filtrarPorPeligro(nivel)
+
+    fun filtrarPorAparicion(aparicion: String): LiveData<List<Bestia>> = dao.filtrarPorAparicion(aparicion)
+
+    fun filtrarLibros(): LiveData<List<Bestia>> = dao.filtrarLibros()
+    fun filtrarPeliculas(): LiveData<List<Bestia>> = dao.filtrarPeliculas()
+
     suspend fun toggleFavorito(bestia: Bestia) {
         dao.actualizar(bestia.copy(esFavorito = !bestia.esFavorito))
     }
+
+    val todasDesc: LiveData<List<Bestia>> = dao.obtenerTodasDesc()
 }

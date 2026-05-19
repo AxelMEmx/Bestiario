@@ -18,11 +18,10 @@
 
         <ImageView
             android:id="@+id/imageBestiaItem"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:scaleType="centerCrop"
-            android:background="#0D0D0D"
-            android:src="@android:drawable/ic_menu_gallery"/>
+            android:background="#0D0D0D"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -49,16 +48,43 @@
                 android:textStyle="italic"
                 android:layout_marginTop="2dp"/>
 
-            <TextView
-                android:id="@+id/textPeligroItem"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="2dp"
-                android:background="@drawable/bg_peligro"
-                android:textColor="#FFFFFF"
-                android:textSize="11sp"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/textPeligroItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:background="@drawable/bg_peligro"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textHabitatItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#888888"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/textDescripcionItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#666666"
+                android:textSize="11sp"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
